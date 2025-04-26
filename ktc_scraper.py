@@ -201,7 +201,7 @@ def export_to_csv(players, format='1QB', tep=0, filename='ktc.csv'):
 
     # Add a "Last Updated" timestamp at the very top
     timestamp = [f"Last updated: {datetime.utcnow().strftime('%B %d, %Y %I:%M %p UTC')}"]
-        rows_data.insert(0, timestamp)
+    rows_data.insert(0, timestamp)
 
     # Export data to CSV file
     csv_filename = filename
