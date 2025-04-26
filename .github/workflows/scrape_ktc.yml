@@ -1,0 +1,35 @@
+name: Scrape and Update KTC CSV
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'  # Runs at 6AM and 6PM UTC daily
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 tqdm
+
+      - name: Run scraper
+        run: |
+          python ktc_scraper.py
+
+      - name: Commit CSV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ktc.csv
+          git commit -m "Update KTC CSV"
+          git push
