@@ -29,10 +29,14 @@ jobs:
           python generate_all_csvs.py
 
 
-      - name: Move CSV to docs folder
+      - name: Move CSVs to docs folder
         run: |
           mkdir -p docs
-          mv ktc.csv docs/ktc.csv
+          mv ktc_1qb.csv docs/
+          mv ktc_1qb_tep.csv docs/
+          mv ktc_sf.csv docs/
+          mv ktc_sf_tep.csv docs/
+
 
       - name: Commit and Push changes
         env:
