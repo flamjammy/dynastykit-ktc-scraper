@@ -199,6 +199,10 @@ def export_to_csv(players, format='1QB', tep=0):
     # Make player values unique for indexing and searchability
     rows_data = make_unique(rows_data)
 
+    # Add a "Last Updated" timestamp at the very top
+    timestamp = [f"Last updated: {datetime.utcnow().strftime('%B %d, %Y %I:%M %p UTC')}"]
+        rows_data.insert(0, timestamp)
+
     # Export data to CSV file
     csv_filename = 'ktc.csv'
     with open(csv_filename, 'w', newline='') as csv_file:
