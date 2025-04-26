@@ -150,7 +150,7 @@ using the appropriate league settings.
 format: 'SF' or '1QB'
 tep: 0 for no TEP, 1 for TE+, 2 for TE++, and 3 for TE+++
 """
-def export_to_csv(players, format='1QB', tep=0):
+def export_to_csv(players, format='1QB', tep=0, filename='ktc.csv'):
     # Modify data for the league's settings
     if format == '1QB':
         header = [f"Updated {date.today().strftime('%m/%d/%y')} at {datetime.now().strftime('%I:%M%p').lower()}", "Position Rank", "Position", "Team", "Value", "Age", "Rookie", "SFPosition Rank", "SFValue", "RdrftPosition Rank", "RdrftValue"]
@@ -204,7 +204,7 @@ def export_to_csv(players, format='1QB', tep=0):
         rows_data.insert(0, timestamp)
 
     # Export data to CSV file
-    csv_filename = 'ktc.csv'
+    csv_filename = filename
     with open(csv_filename, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerows(rows_data)
