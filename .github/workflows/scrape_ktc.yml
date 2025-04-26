@@ -26,10 +26,15 @@ jobs:
         run: |
           python ktc_scraper.py
 
+      - name: Move CSV to docs folder
+        run: |
+          mkdir -p docs
+          mv ktc.csv docs/ktc.csv
+
       - name: Commit CSV
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ktc.csv
+          git add docs/ktc.csv
           git commit -m "Update KTC CSV"
           git push
