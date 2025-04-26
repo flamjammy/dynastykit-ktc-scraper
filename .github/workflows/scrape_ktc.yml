@@ -24,9 +24,10 @@ jobs:
         run: |
           pip install requests beautifulsoup4 tqdm
 
-      - name: Run scraper
+      - name: Run all scrapers
         run: |
-          python ktc_scraper.py
+          python generate_all_csvs.py
+
 
       - name: Move CSV to docs folder
         run: |
