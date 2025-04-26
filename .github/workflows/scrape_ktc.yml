@@ -31,11 +31,11 @@ jobs:
 
       - name: Move CSVs to docs folder
         run: |
-          mkdir -p docs
-          mv ktc_1qb.csv docs/
-          mv ktc_1qb_tep.csv docs/
-          mv ktc_sf.csv docs/
-          mv ktc_sf_tep.csv docs/
+          mkdir -p ./docs
+          mv ktc_1qb.csv ./docs/
+          mv ktc_1qb_tep.csv ./docs/
+          mv ktc_sf.csv ./docs/
+          mv ktc_sf_tep.csv ./docs/
 
 
       - name: Commit and Push changes
